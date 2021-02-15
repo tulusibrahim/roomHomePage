@@ -1,0 +1,296 @@
+*{
+    padding: 0;
+    margin: 0;
+    transition: .5s;
+    font-family: 'Spartan', sans-serif;
+}
+
+.content{
+    width: 100vw;
+    height: auto;
+    display: grid;
+    grid-template-areas: "header"
+                        "desc1"
+                        "gambar2"
+                        "desc2"
+                        "gambar3";
+    grid-template-columns: 1fr;
+
+    .nav{
+        grid-template-areas: "header";
+        position: relative;
+
+        .images{
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+            .image img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .imgnav{
+            top: 0;
+            position: absolute;
+            width: 100%;
+            height: 15vh;
+            display : flex; 
+            align-items : center; 
+            justify-content: center;
+
+            .option{
+                position: absolute;
+                left: 20px;
+            }
+        }
+
+        .navcontent{
+            width: 100%;
+            height: 15vh;
+            opacity: 0;
+            top: -15vh;
+            position: absolute;
+            background-color: white;
+            color: black;
+            display : flex; 
+            align-items : center; 
+            justify-content: space-around;
+            font-weight: 600;
+            font-size: 12px;
+            transition: .5s;
+
+            div span a{
+                margin: 2px;
+                text-decoration: none;
+                color: black;
+                position: relative;
+            }
+
+            div span a::after{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                margin: auto;
+                left: 0;
+                right: 0;
+                height: 2px;
+                width: 0%;
+                background-color: white;
+                transition: .5s;
+            }
+
+            div span a:hover::after{
+                width: 100%;
+            }
+
+            div span a:active{
+                font-weight: 700;
+            }
+
+            img{
+                background-repeat: no-repeat;
+            }
+        }
+
+        .geser2{
+            position: absolute;
+            bottom: 5px;
+            right: 0;
+            background-color: black;
+            display : flex; 
+            align-items : center; 
+            justify-content: center;
+        
+            .left, .right{
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                cursor: pointer;
+            }
+
+            .left:active, .right:active{
+                background-color: hsl(0, 0%, 27%);
+            }
+        }
+    }
+
+    .text{
+        grid-template-areas: "gambar1";
+        position: relative;
+        height: auto;
+        width: 80%;
+        padding-top: 20px;
+        margin: auto;
+        padding-bottom: 20px;
+
+        #btnshop:hover{
+            background-color: hsl(0, 0%, 63%);
+        }
+
+        #btnshop{
+            cursor: pointer;
+        }
+
+        .title{
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .desc{
+            
+            font-weight: 500;
+            font-size: 12px;
+            color: hsl(0, 0%, 63%);
+            margin-bottom: 15px;
+        }
+        button{
+            border: none;
+            padding: 10px;
+            width: 75%;
+            display : flex; 
+            align-items : center; 
+            justify-content: space-between;
+            outline: none;
+            background-color: transparent;
+
+            p{
+                letter-spacing: 5px;
+                font-size: 12px;
+            }
+        }
+    }
+
+    .twosec img{
+        width: 100%;
+    }
+}
+
+
+//for bigger screen
+
+@media(min-width:900px){
+    .content{
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        position: relative;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 70% 30%;
+
+        .nav{
+            grid-column: span 2;
+            grid-row: 1fr;
+
+            .images{
+                overflow: hidden;
+                background-size: cover;
+                
+                .image{
+                    height: 100%;
+
+                    .poto{
+                        background-size: contain;
+                        height: 100%;
+                        position: absolute;
+                    }
+                }
+            }
+
+            .imgnav{
+                height: 15vh;
+                .option{
+                    display: none;
+                }
+                .logo{
+                    left: 40px;
+                    position: absolute;
+                    background-position: center;
+                }
+            }
+
+            .navcontent{
+                width: 100%;
+                height: 15vh;
+                opacity: 1;
+                top: 0;
+                position: absolute;
+                background-color: transparent;
+                color: white;
+                display : flex; 
+                align-items : center; 
+                justify-content: center;
+                font-weight: 600;
+                font-size: 12px;
+                transition: .5s;
+
+                .close{
+                    display: none;
+                }
+
+                div{
+                    position: relative;
+                    left: 50px;
+                    width: 50%;
+                    display : flex; 
+                    align-items : center; 
+                    justify-content: space-evenly;
+                    padding-bottom: 3px;
+                }
+    
+                div span a{
+                    margin: 2px;
+                    text-decoration: none;
+                    color: white;
+                }
+    
+                img{
+                    background-repeat: no-repeat;
+                }
+            }
+
+            .text{
+                grid-column: 3;
+                margin: auto;
+                padding: 0;
+                display : flex; align-items : center; justify-content: center;
+                flex-direction: column;
+            }
+
+            .navcontent{
+                font-size: 1.2em;
+            }
+
+            .geser2{
+                bottom: 0;
+            }
+        }
+
+        .twosec{
+            grid-column: span 3;
+            display : flex; align-items : center; justify-content: center;
+            flex-direction: row;
+
+            .text{
+                width: 40%;
+
+                .title{
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                }
+
+                .desc{
+                    line-height: 1.5em;
+                }
+            }
+
+            img{
+                width: 27%;
+                height: 100%;
+            }
+        }
+    }
+}
